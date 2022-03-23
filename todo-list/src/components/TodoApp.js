@@ -4,7 +4,6 @@ import TodoList from "./TodoList";
 
 const TodoApp = () => {
   const [todos, setTodos] = useState([]);
-  //todos
   const addTodoHandler = (input) => {
     const newTodo = {
       id: Math.random() * 1000,
@@ -12,12 +11,16 @@ const TodoApp = () => {
       isCompleted: false,
     };
 
-    setTodos(...todos, newTodo);
+    setTodos((prevTodos) => [...prevTodos, newTodo]);
   };
+  const onCompleteTodo = (id) => {
+    console.log(id);
+  };
+
   return (
     <div className="container">
       <TodoForm addTodoHandler={addTodoHandler} />
-      <TodoList />
+      <TodoList onComplete={onCompleteTodo} todos={todos} />
     </div>
   );
 };

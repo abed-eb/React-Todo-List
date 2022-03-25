@@ -11,6 +11,17 @@
   margin-bottom: 30px;
 }
 
+input {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px 3px;
+  outline: none;
+}
+
+input:focus {
+  border: 1px solid blueviolet;
+}
+
 .container {
   display: flex;
   align-items: center;
@@ -22,9 +33,15 @@
   padding: 10px;
 }
 .todo {
+  cursor: auto;
   width: 20rem;
   margin: 10px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #ccc;
 }

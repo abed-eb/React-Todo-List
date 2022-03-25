@@ -18,8 +18,6 @@ const TodoList = ({ todos, onComplete, onDelete, onUpdate }) => {
               key={todo.id}
               todo={todo}
               onEdit={() => setEdit(todo)}
-              edit={edit}
-              submitTodo={editTodo}
               onDelete={() => onDelete(todo.id)}
               onComplete={() => onComplete(todo.id)}
             />
@@ -28,7 +26,11 @@ const TodoList = ({ todos, onComplete, onDelete, onUpdate }) => {
       </div>
     );
   };
-  return <div>{renderTodos()}</div>;
+  return (
+    <div>
+      {edit.id ? <TodoForm edit={edit} submitTodo={editTodo} /> : renderTodos()}
+    </div>
+  );
 };
 
 export default TodoList;
